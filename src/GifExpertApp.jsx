@@ -1,10 +1,13 @@
 //Importamos el UseState
 import { useState } from "react";
 
-export const GifExpertApp = () => {
-
+export const GifExpertApp = () => {    
+// Categorias
 const [categories, setCategories] = useState(['One Punch', 'One Piece']);
-
+// Agregar nueva categoria
+const OnAddCategory = () => {
+    setCategories([...categories, 'Dragon Ball'])
+}
 console.log(categories);
 
 return (
@@ -13,6 +16,8 @@ return (
         <h1>Gif Expert App</h1>
         {/* Input */}
 
+        {/* Boton para agregar nueva categoria */}
+        <button onClick={OnAddCategory}>Agregar Categoria</button>
         {/* Listado de Gif */}
         <ol>
             { categories.map( category => {
