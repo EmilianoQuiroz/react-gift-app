@@ -10,17 +10,15 @@ const [categories, setCategories] = useState(['One Punch', 'One Piece']);
 const OnAddCategory = () => {
     setCategories([...categories, 'Dragon Ball'])
 }
-console.log(categories);
+// console.log(categories);
 
 return (
     <>
         {/* Titulo */}
         <h1>Gif Expert App</h1>
         {/* Input */}
-        <AddCategory />
+        <AddCategory setCategories={ setCategories } />
 
-        {/* Boton para agregar nueva categoria */}
-        <button onClick={OnAddCategory}>Agregar Categoria</button>
         {/* Listado de Gif */}
         <ol>
             { categories.map( category => {
