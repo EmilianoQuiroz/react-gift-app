@@ -1,5 +1,7 @@
-//Importamos el UseState
+// Importamos el UseState
 import { useState } from "react";
+// Componente para agregar categorias
+import { AddCategory } from "./components/AddCategory";
 
 export const GifExpertApp = () => {    
 // Categorias
@@ -15,6 +17,7 @@ return (
         {/* Titulo */}
         <h1>Gif Expert App</h1>
         {/* Input */}
+        <AddCategory />
 
         {/* Boton para agregar nueva categoria */}
         <button onClick={OnAddCategory}>Agregar Categoria</button>
