@@ -8,6 +8,8 @@ export const GifExpertApp = () => {
 const [categories, setCategories] = useState(['One Punch', 'One Piece']);
 // Agregar nueva categoria
 const onAddCategory = ( newCategory ) => {
+    //Validamos que la categoria se unica
+    if ( categories.includes(newCategory) ) return;
     setCategories([newCategory, ...categories]);
     // console.log(newCategory);
     console.log(newCategory);
