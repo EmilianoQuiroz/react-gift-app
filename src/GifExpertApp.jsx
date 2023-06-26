@@ -2,32 +2,32 @@ import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
 import { GifGrid } from "./components/GifGrid";
 
-export const GifExpertApp = () => {    
-// Categorias
-const [categories, setCategories] = useState([ 'Lufy' ]);
+export const GifExpertApp = () => {
+    
+    const [ categories, setCategories ] = useState([ 'Lufy' ]);
+    
+    const onAddCategory = ( newCategory ) => {
+        if ( categories.includes(newCategory) ) return;
+        setCategories([ newCategory, ...categories ]);
+    }
+    
+    return (
+        <>
 
-// Agregar nueva categoria
-const onAddCategory = ( newCategory ) => {
-    //Validamos que la categoria se unica
-    if ( categories.includes(newCategory) ) return;
-    setCategories([newCategory, ...categories]);
-}   
+            <h1>GifExpertApp</h1>
 
-return (
-    <>
-        <h1>Gif Expert App</h1>
+            <AddCategory 
+                onNewCategory={ (value) => onAddCategory(value) }
+            />
 
-        <AddCategory 
-            onNewCategory={ onAddCategory }
-        />
+            { 
+                categories.map( ( category ) => (
+                    <GifGrid 
+                        key={ category } 
+                        category={ category } />
+                ))
+            }
 
-        { categories.map( category => (
-                <GifGrid 
-                    key={ category } 
-                    category={ category }/> 
-            ))
-        }
-
-    </>
-  )
+        </>
+    )
 }

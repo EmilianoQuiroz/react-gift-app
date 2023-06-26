@@ -3,25 +3,28 @@ import { useFetchGifs } from '../hooks/useFetchGifs';
 
 export const GifGrid = ({ category }) => {
 
-    // Custom Hook
     const { images, isLoading } = useFetchGifs( category );
-
-   return (
-    <>
-        <h3>{ category }</h3>
-        {
-            isLoading && ( <h2>Cargando...</h2> )
-        }
-        <div className="card-grid">
+    
+    return (
+        <>
+            <h3>{ category }</h3>
             {
-                images.map( ( image ) =>(
-                    <GifItem 
-                        key={ image.id } 
-                        {... image}  
-                    />
-                ))
+                isLoading && ( <h2>Cargando...</h2> )
             }
-        </div>
-    </>
-  )
+            
+
+            <div className="card-grid">
+                {
+                    images.map( ( image ) => (
+                        <GifItem 
+                            key={ image.id } 
+                            { ...image }
+                        />
+                    ))
+                }
+                
+            </div>
+
+        </>
+    )
 }
