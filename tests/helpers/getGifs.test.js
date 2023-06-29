@@ -4,7 +4,7 @@ describe('Pruebas en getGifs()', () => {
     
     test('debe de retornar un arreglo de gifs', async() => {
 
-        const gifs = await getGifs('One Punch');
+        const gifs = await getGifs('Lufy');
         expect( gifs.length ).toBeGreaterThan( 0 );
         expect( gifs[0] ).toEqual({
             id: expect.any( String ),
